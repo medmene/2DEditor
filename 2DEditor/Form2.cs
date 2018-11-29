@@ -21,6 +21,7 @@ namespace _2DEditor
         Point[] Figure;
         int GLangl = 0;
         float curAngl = 0;
+        float curRad = 1;
         int xCoord = 0, yCoord = 0;
         bool grab = false;
         public Form2(List<float> _rad, List<float> _angl)
@@ -32,7 +33,9 @@ namespace _2DEditor
         }
 
         private void Form2_Load(object sender, EventArgs e)
-        {            
+        {
+            trackBar1.Enabled = true;
+            trackBar1.Value = 50;  
             fonImg = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             pbGraph = pictureBox1.CreateGraphics();
             imgGraph = Graphics.FromImage(fonImg);
@@ -89,10 +92,11 @@ namespace _2DEditor
             for (int i = 0; i < Figure.Length; ++i)
             {
                 curAngl = angl[i] + GLangl; if (curAngl >= 360) curAngl -= 360;
+                curRad = rad[i] * trackBar1.Value / 50;
                 xCoord = Center.X + Convert.ToInt32(((curAngl < 180) ? Math.Cos((curAngl) / 180 * Math.PI)
-                    : -Math.Cos((curAngl - 180) / 180 * Math.PI)) * rad[i]);
+                    : -Math.Cos((curAngl - 180) / 180 * Math.PI)) * curRad);
                 yCoord = Center.Y + Convert.ToInt32(((curAngl < 180) ? Math.Sin((curAngl) / 180 * Math.PI)
-                    : -Math.Sin((curAngl - 180) / 180 * Math.PI)) * rad[i]);
+                    : -Math.Sin((curAngl - 180) / 180 * Math.PI)) * curRad);
                 Figure[i] = new Point(xCoord, yCoord);
             }
             imgGraph.FillPolygon(Brushes.Black, Figure);
