@@ -22,6 +22,8 @@ namespace _2DEditor
         Point MainPoint; //центр вращения
         Point startRect, startField, endField; //выделение обласи для удаления
         List<Point> DelPoint; //удаляемые точки
+        List<float> rad = new List<float>();
+        List<float> angl = new List<float>();
         public Form1()
         {
             InitializeComponent();
@@ -46,8 +48,8 @@ namespace _2DEditor
                 sd.Filter = "Text files(*.txt)|*.txt|All files(*.*)|*.*";
                 if (sd.ShowDialog() == DialogResult.OK)
                 {
-                    List<float> rad = new List<float>();
-                    List<float> angl = new List<float>();
+                    angl = new List<float>();
+                    rad = new List<float>();
                     for (int i = 0; i < ActualPoints.Count; ++i)
                     {
                         int first = MainPoint.X - ActualPoints[i].X;
@@ -222,18 +224,7 @@ namespace _2DEditor
             }
             pbReal.DrawImage(bgImg, 0, 0);
         }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            for(int i = 0; i < DelPoint.Count; ++i)
-            {
-                Log.Add(DelPoint[i]);
-                ActualPoints.Remove(DelPoint[i]);
-            }
-            DelPoint = new List<Point>();
-            ReDraw();
-        }
-        
+                
         private void Form1_SizeChanged(object sender, EventArgs e)
         {
             try
@@ -273,6 +264,15 @@ namespace _2DEditor
         private void centerPointToolStripMenuItem_Click(object sender, EventArgs e)
         {
             checkBox1.Checked = !checkBox1.Checked;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (angl.Count != 0)
+            {
+                Form2 fr = new Form2(rad, angl);
+                fr.Show();
+            }
         }
 
         private void deleteSelectedToolStripMenuItem_Click(object sender, EventArgs e)

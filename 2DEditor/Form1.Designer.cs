@@ -38,8 +38,9 @@
             this.deleteSelectedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rollbackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.centerPointToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -130,6 +131,14 @@
             this.clearAllToolStripMenuItem.Text = "Clear all";
             this.clearAllToolStripMenuItem.Click += new System.EventHandler(this.clearAllToolStripMenuItem_Click);
             // 
+            // centerPointToolStripMenuItem
+            // 
+            this.centerPointToolStripMenuItem.Name = "centerPointToolStripMenuItem";
+            this.centerPointToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
+            this.centerPointToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.centerPointToolStripMenuItem.Text = "Center Point";
+            this.centerPointToolStripMenuItem.Click += new System.EventHandler(this.centerPointToolStripMenuItem_Click);
+            // 
             // checkBox1
             // 
             this.checkBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -141,19 +150,24 @@
             this.checkBox1.Text = "Center Point";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // centerPointToolStripMenuItem
+            // button3
             // 
-            this.centerPointToolStripMenuItem.Name = "centerPointToolStripMenuItem";
-            this.centerPointToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
-            this.centerPointToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
-            this.centerPointToolStripMenuItem.Text = "Center Point";
-            this.centerPointToolStripMenuItem.Click += new System.EventHandler(this.centerPointToolStripMenuItem_Click);
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button3.Font = new System.Drawing.Font("Calibri", 13.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button3.Location = new System.Drawing.Point(184, 671);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(86, 32);
+            this.button3.TabIndex = 6;
+            this.button3.Text = "Model";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1344, 705);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button2);
@@ -185,6 +199,7 @@
         private System.Windows.Forms.ToolStripMenuItem rollbackToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clearAllToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem centerPointToolStripMenuItem;
+        private System.Windows.Forms.Button button3;
     }
 }
 
